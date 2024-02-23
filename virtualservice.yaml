@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: my-virtualservice
+spec:
+  hosts:
+    - "*" # Your domain or IP for the ingress
+  gateways:
+    - my-gateway
+  http:
+    - route:
+        - destination:
+            host: springboot-service
+            port:
+              number: 8080
